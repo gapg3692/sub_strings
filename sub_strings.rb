@@ -1,15 +1,12 @@
 dictionary = ["below","down","go","going","horn","how","howdy","it","i","low","own","part","partner","sit"]
 
-
 def substrings(text, dictionary)
 
     hash_container= {}
-    for i in 0...dictionary.length do
-        accumulator= count_word_repeat(text.downcase,dictionary[i])
-        if accumulator != 0
-            hash_container[dictionary[i].to_sym] = accumulator
-        end
-    end
+    dictionary.each do |word|
+        accumulator= count_word_repeat(text.downcase,word)
+            hash_container[word.to_sym] = accumulator unless accumulator == 0
+    end  
     return hash_container
 end
 
